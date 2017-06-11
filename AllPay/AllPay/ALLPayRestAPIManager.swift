@@ -49,6 +49,37 @@ class ALLPayRestAPIManager : NSObject
         task.resume()
     }
     
+    public func TransactionView(spenderID:Int, onCompletion: @escaping ( _ : Bool, _ : Bool) -> Void)
+    {
+        var returnValue:Bool = false
+        let urlString = "http://codeduomobileapi.azurewebsites.net/api/TransactionsView/\(spenderID)/"
+        
+        let url = URL(string: urlString)
+        
+        let task = URLSession.shared.dataTask(with:url!)
+        { (data, response, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+            else
+            {
+                do
+                {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String:Any]
+                    returnValue = (parsedData["status"] as! String) == "SUCCESS"
+                    onCompletion(true,returnValue)
+                }
+                catch let error as NSError
+                {
+                    print(error)
+                    onCompletion(false,false)
+                }
+            }
+        }
+        task.resume()
+    }
+    
     public func AcceptPayment(spenderID:Int, paymentRecord : PaymentRecord, onCompletion: @escaping ( _ : Bool, _ : Bool) -> Void)
     {
         var returnValue:Bool = false

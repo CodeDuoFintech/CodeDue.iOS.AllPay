@@ -27,6 +27,7 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     private var m_MerchantValid : Bool?
     private var m_SpenderID : Int = 1;
     private var m_API : ALLPayRestAPIManager?
+    private var m_CameraLightOn :Bool = false
     
     static let s_id_pattern = "^([0-1]|[a-zA-Z])+$"
     static let s_amount_pattern = "^[1-9][0-1]+.$"
@@ -324,4 +325,34 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
     }
 
+    
+    @IBAction func ViewSwipe(_ sender: UISwipeGestureRecognizer)
+    {
+        if sender.direction == UISwipeGestureRecognizerDirection.right
+        {
+            print("Swipe Right")
+            self.toggleFlash()
+        }
+        else if sender.direction == UISwipeGestureRecognizerDirection.left
+        {
+            print("Swipe Left")
+            self.toggleFlash()
+        }
+        
+    }
+    
+    func toggleFlash()
+    {
+        if let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo), device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+                let torchOn = !device.isTorchActive
+                try device.setTorchModeOnWithLevel(1.0)
+                device.torchMode = torchOn ? .on : .off
+                device.unlockForConfiguration()
+            } catch {
+                print("error")
+            }
+        }
+    }
 }

@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F08CCD91EEC994500C19E24 /* ALLPayRestAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F08CCD81EEC994500C19E24 /* ALLPayRestAPIManager.swift */; };
 		0F335FDC1EEC0C2C00D0D008 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F335FDB1EEC0C2C00D0D008 /* AppDelegate.swift */; };
-		0F335FDE1EEC0C2C00D0D008 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F335FDD1EEC0C2C00D0D008 /* FirstViewController.swift */; };
-		0F335FE01EEC0C2C00D0D008 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F335FDF1EEC0C2C00D0D008 /* SecondViewController.swift */; };
+		0F335FDE1EEC0C2C00D0D008 /* TransactionsTblViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F335FDD1EEC0C2C00D0D008 /* TransactionsTblViewController.swift */; };
 		0F335FE31EEC0C2C00D0D008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F335FE11EEC0C2C00D0D008 /* Main.storyboard */; };
 		0F335FE51EEC0C2C00D0D008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F335FE41EEC0C2C00D0D008 /* Assets.xcassets */; };
 		0F335FE81EEC0C2C00D0D008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F335FE61EEC0C2C00D0D008 /* LaunchScreen.storyboard */; };
@@ -24,8 +23,7 @@
 		0F08CCD81EEC994500C19E24 /* ALLPayRestAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALLPayRestAPIManager.swift; sourceTree = "<group>"; };
 		0F335FD81EEC0C2C00D0D008 /* AllPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F335FDB1EEC0C2C00D0D008 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F335FDD1EEC0C2C00D0D008 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		0F335FDF1EEC0C2C00D0D008 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		0F335FDD1EEC0C2C00D0D008 /* TransactionsTblViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTblViewController.swift; sourceTree = "<group>"; };
 		0F335FE21EEC0C2C00D0D008 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F335FE41EEC0C2C00D0D008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F335FE71EEC0C2C00D0D008 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,8 +67,7 @@
 				0F335FEF1EEC0CAB00D0D008 /* AccountViewController.swift */,
 				0F335FF21EEC0CAB00D0D008 /* PaymentViewController.swift */,
 				0F335FDB1EEC0C2C00D0D008 /* AppDelegate.swift */,
-				0F335FDD1EEC0C2C00D0D008 /* FirstViewController.swift */,
-				0F335FDF1EEC0C2C00D0D008 /* SecondViewController.swift */,
+				0F335FDD1EEC0C2C00D0D008 /* TransactionsTblViewController.swift */,
 				0F335FE11EEC0C2C00D0D008 /* Main.storyboard */,
 				0F335FE41EEC0C2C00D0D008 /* Assets.xcassets */,
 				0F335FE61EEC0C2C00D0D008 /* LaunchScreen.storyboard */,
@@ -156,12 +153,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F335FF61EEC0CAB00D0D008 /* PaymentViewController.swift in Sources */,
-				0F335FE01EEC0C2C00D0D008 /* SecondViewController.swift in Sources */,
 				0F335FDC1EEC0C2C00D0D008 /* AppDelegate.swift in Sources */,
 				0F08CCD91EEC994500C19E24 /* ALLPayRestAPIManager.swift in Sources */,
 				0F335FF81EEC118D00D0D008 /* PaymentRecord.swift in Sources */,
 				0F335FF31EEC0CAB00D0D008 /* AccountViewController.swift in Sources */,
-				0F335FDE1EEC0C2C00D0D008 /* FirstViewController.swift in Sources */,
+				0F335FDE1EEC0C2C00D0D008 /* TransactionsTblViewController.swift in Sources */,
 				0F335FFA1EEC1ABA00D0D008 /* PayNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,6 +28,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVH-J7-AM0">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -87,19 +88,29 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="Yon-2c-e3b">
+                    <connections>
+                        <action selector="ViewSwipe:" destination="9pv-A4-QxB" id="CAe-mv-vkp"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="iFD-nB-YDd">
+                    <connections>
+                        <action selector="ViewSwipe:" destination="9pv-A4-QxB" id="RQK-Z0-doh"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2135.1999999999998" y="-403.44827586206901"/>
         </scene>
         <!--Transactions-->
         <scene sceneID="Buv-wz-AkO">
             <objects>
-                <tableViewController id="jMu-Rh-22s" sceneMemberID="viewController">
+                <tableViewController id="jMu-Rh-22s" customClass="TransactionsTblViewController" customModule="AllPay" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DLP-7x-TKw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="OhE-6f-faP">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionRecord" id="OhE-6f-faP">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OhE-6f-faP" id="GUl-Fl-3sj">
