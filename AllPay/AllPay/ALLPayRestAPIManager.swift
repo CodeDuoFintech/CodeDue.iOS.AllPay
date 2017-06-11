@@ -80,7 +80,7 @@ class ALLPayRestAPIManager : NSObject
         task.resume()
     }
     
-    public func AcceptPayment(spenderID:Int, paymentRecord : PaymentRecord, onCompletion: @escaping ( _ : Bool, _ : Bool) -> Void)
+    public func MakePayment(spenderID:Int, paymentRecord : PaymentRecord, onCompletion: @escaping ( _ : Bool, _ : Bool) -> Void)
     {
         var returnValue:Bool = false
         let urlString = "http://codeduomobileapi.azurewebsites.net/api/Transfers/\(spenderID)/\(paymentRecord.MerchantID)/\(paymentRecord.Amount)/\(paymentRecord.ReferenceID)/\(paymentRecord.CurrencyID)"
@@ -98,9 +98,11 @@ class ALLPayRestAPIManager : NSObject
                 do
                 {
                     let parsedData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String:Any]
-                    returnValue = (parsedData["status"] as! String) == "SUCCESS"
-                    print(paymentRecord.PaymentStatus)
-                    onCompletion(true,returnValue)
+                    let pStatus:String = parsedData["status"] as! String
+                   // {
+                        //returnValue = () == "SUCCESS"
+                        onCompletion(true,true)
+                    //}
                 }
                 catch let error as NSError
                 {

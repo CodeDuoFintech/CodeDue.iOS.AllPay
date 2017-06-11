@@ -63,7 +63,30 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 {
                     // Fingerprint recognized
                     // Go to view controller
-                   //self.navigateToAuthenticatedViewController((onCompletion: <#(Bool) -> Void#>)
+                   //self.navigateToAuthenticatedViewController((onCompletion: (Bool) -> Void)
+                   self.m_API?.MakePayment(spenderID:self.m_SpenderID, paymentRecord : self.m_PaymentRecord!, onCompletion: { (finished:Bool,accept:Bool) -> Void in
+                        if ( finished && accept )
+                        {
+                    print("success payment")
+                            //self.m_MerchantLabel.backgroundColor = .green
+                            //self.makePaymentButton.isEnabled = true
+                            self.m_PaymentRecord?.PaymentStatus = true
+                            self.navigateToAuthenticatedViewController(status: "success")
+                        }
+                            
+                        else
+                        {
+                    print("fail payment")
+                            self.m_PaymentRecord?.PaymentStatus = false
+
+
+                            //self.m_MerchantLabel.backgroundColor = .red
+                            //self.makePaymentButton.isEnabled = false
+                            self.navigateToAuthenticatedViewController(status: "fail")
+                        }
+                    })
+                    
+                    
 
                     
                 }
@@ -181,18 +204,7 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                         }
                     })
 
-                    /*self.m_API?.AcceptPayment(spenderID:self.m_SpenderID, paymentRecord : self.m_PaymentRecord!, onCompletion: { (finished:Bool,accept:Bool) -> Void in
-                            if ( finished && accept )
-                            {
-                                self.m_MerchantLabel.backgroundColor = .green
-                                self.makePaymentButton.isEnabled = true
-                            }
-                            else
-                            {
-                                self.m_MerchantLabel.backgroundColor = .red
-                                self.makePaymentButton.isEnabled = false
-                            }
-                        })*/
+
                 }
                 else
                 {
@@ -305,10 +317,10 @@ class PaymentViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     /**
      This method will push the authenticated view controller onto the UINavigationController stack
      */
-    func navigateToAuthenticatedViewController(onCompletion: @escaping ( _ : Bool ) -> Void )
+    func navigateToAuthenticatedViewController(status:String)
     {
         
-        if(self.m_PaymentRecord!.PaymentStatus)
+        if(status == "success")
         {
             showAlertWithTitle(title: "Payment Status", message: "Succes")
         }
